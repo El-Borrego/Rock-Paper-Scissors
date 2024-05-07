@@ -1,0 +1,204 @@
+body{
+    margin:0;
+    background-color: #8080805a;
+}
+header{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height:15dvh;
+    text-align:center;
+    margin:0;
+}
+main{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    height:85dvh;
+    width:100vw;
+    margin:0;
+}
+#display-bubble{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    height:150px;
+    width:300px;
+    border-radius:15px;
+    background-color: #aa20ff60;
+    position:relative;
+    overflow:hidden;
+    z-index: 0;
+    box-shadow: 2px 2px 4px 2px grey;
+}
+#display-bubble:after{
+    content:'';
+    height:20px;
+    width:20px;
+    background-color: white;
+    border-radius:110px 10px 100px 10px ;
+    position:absolute;
+    top:10px;
+    left:10px;
+    box-shadow: 2px 2px 2px grey;
+    z-index: 1;
+}
+#display-bubble:before{
+    content:'';
+    height:170%;
+    width: 5%;
+    position:absolute;
+    background-color: white;
+    z-index: -1;
+    transform:rotate(50deg);
+    border-radius: 10px 100px;
+    left: 120px;
+    
+    box-shadow:2px 2px 2px grey;
+}
+#display-bubble div{
+    font-size: 50px;
+}
+button{
+    font-size: 70px;
+    border-radius: 15px;
+
+    scale: .8;
+    opacity: .3;
+    transition: 1.3s ease;
+}
+#choice-bubble{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap:10px;
+}
+
+#choice-bubble button:hover{
+    opacity: 1;
+    scale:1;
+}
+#computer-choice{
+    transform: rotateY(180deg) rotate(-90deg);
+}
+#user-choice{
+    transform: rotate(-90deg);
+}
+
+.animation{
+    animation-name: play;
+    animation-duration:3s;
+    animation-direction: normal;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+}
+@keyframes play{
+    /*Need two points for each second... 
+      each point in theory being half a second
+      and I need three seconds total...
+      so... 6?... total.. "stops"? i guess
+      so... rotate like.. 20 deg... then back..
+    */
+
+    /*start and stop of second 1*/
+    0%{
+        transform: rotate(-90deg)
+        translate(0, 0);
+    }
+    14.3%{
+        transform: rotate(20deg)
+        translate(20px, -20px);
+    }
+    /*start and stop of second 2*/
+    28.6%{
+        transform: rotate(-90deg)
+        translate(0, 0);
+    }
+    42.9%{
+        transform: rotate(20deg)
+        translate(20px, -20px)
+    }
+        /*start and stop of second 3*/
+    57.2%{
+        transform: rotate(-90deg)
+        translate(0, 0);
+    }
+    71.5%{
+        transform: rotate(20deg)
+        translate(20px, -20px)
+    }
+    /*start and stop of second... 4
+        math is a little off or something.. but.. 
+        we'll see how it looks
+
+        might be off... cause we're ending up for some reason
+        ...  we'll get it...
+    */
+    85.8%{
+        transform: rotate(-90deg)
+        translate(0, 0);
+    }
+    100%{
+        transform: rotate(20deg)
+        translate(20px, -20px)
+    }
+    /*
+        Now... for testies... I guess we'll just see how it
+        looks... on hover?...
+
+        then... we'll see if it works... while... active?
+
+        then... 
+    */
+}
+
+.CPU-animation{
+    animation-name: CPUplay;
+    animation-duration:3s;
+    animation-direction: normal;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    
+}
+
+@keyframes CPUplay{
+    0%{
+        transform: rotateY(180deg) rotate(-90deg)
+        translate(0, 0);
+    }
+    14.3%{
+        transform: rotateY(180deg) rotate(-20deg)
+        translate(20px, -20px)
+    }
+    28.6%{
+        transform: rotateY(180deg) rotate(-90deg)
+        translate(0, 0);
+        }
+    42.9%{
+        transform: rotateY(180deg) rotate(-20deg)
+        translate(20px, -20px);
+    }
+    57.2%{
+        transform: rotateY(180deg) rotate(-90deg)
+        translate(0, 0);
+        }
+    71.5%{
+        transform: rotateY(180deg) rotate(-20deg)
+        translate(20px, -20px);
+    }
+    85.8%{
+        transform: rotateY(180deg) rotate(-90deg)
+        translate(0, 0);
+        }
+    100%{
+        transform: rotateY(180deg) rotate(-20deg)
+        translate(20px, -20px);
+    }
+
+}
+
+.active{
+    scale:1;
+    opacity: 1;
+}
